@@ -87,6 +87,11 @@ public final class Constants {
     public static final double kPModuleTurningController = 1;
 
     public static final double kPModuleDriveController = 1;
+
+    // https://www.swervedrivespecialties.com/products/mk4-swerve-module
+    // using L2 drive ratio
+    public static final double kTurningGearRatio = 12.8;
+    public static final double kDriveGearRatio = 6.75;
   }
 
   public static final class OIConstants {

@@ -59,11 +59,11 @@ public class SwerveModule {
 
   private double getDriveMotorEncoder() {
     return m_driveMotor.getSelectedSensorVelocity() * 10 / ModuleConstants.kEncoderResolution * Math.PI
-        * ModuleConstants.kWheelDiameterMeters;
+        * ModuleConstants.kWheelDiameterMeters / ModuleConstants.kDriveGearRatio;
   }
 
   private double getTurningMotorEncoder() {
-    return Units.degreesToRadians(m_turningEncoder.getPosition()) * (m_turningEncoderReversed ? -1: 1) ;
+    return Units.degreesToRadians(m_turningEncoder.getPosition()) * (m_turningEncoderReversed ? -1: 1) / ModuleConstants.kTurningGearRatio;
   }
 
   /**
