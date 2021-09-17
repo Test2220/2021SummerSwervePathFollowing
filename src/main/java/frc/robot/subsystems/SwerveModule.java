@@ -6,16 +6,21 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.ctre.phoenix.sensors.CANCoder;
+
 import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.controller.ProfiledPIDController;
 import frc.robot.Constants.ModuleConstants;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.trajectory.TrapezoidProfile;
+import edu.wpi.first.wpilibj.util.Units;
 
 public class SwerveModule {
   private final TalonFX m_driveMotor;
   private final TalonFX m_turningMotor;
+  private final CANCoder m_turningEncoder;
+  private final boolean m_turningEncoderReversed;
 
   private final PIDController m_drivePIDController = new PIDController(ModuleConstants.kPModuleDriveController, 0, 0);
 
@@ -32,12 +37,12 @@ public class SwerveModule {
    * @param turningMotorChannel ID for the turning motor.
    */
   public SwerveModule(int driveMotorChannel, int turningMotorChannel, boolean driveEncoderReversed,
-      boolean turningEncoderReversed) {
-
+      boolean turningEncoderReversed, int turningEncoder) {
+    m_turningEncoderReversed = turningEncoderReversed;
     m_driveMotor = new TalonFX(driveMotorChannel);
     m_turningMotor = new TalonFX(turningMotorChannel);
     m_driveMotor.setInverted(driveEncoderReversed);
-    m_turningMotor.setInverted(turningEncoderReversed);
+    m_turningEncoder = new CANCoder(turningEncoder);
     // Limit the PID Controller's input range between -pi and pi and set the input
     // to be continuous.
     m_turningPIDController.enableContinuousInput(-Math.PI, Math.PI);
@@ -58,7 +63,7 @@ public class SwerveModule {
   }
 
   private double getTurningMotorEncoder() {
-    return m_turningMotor.getSelectedSensorVelocity() * 10 / ModuleConstants.kEncoderResolution * 2 * Math.PI;
+    return Units.degreesToRadians(m_turningEncoder.getPosition()) * (m_turningEncoderReversed ? -1: 1) ;
   }
 
   /**

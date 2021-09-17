@@ -19,19 +19,19 @@ public class DriveSubsystem extends SubsystemBase {
   // Robot swerve modules
   private final SwerveModule m_frontLeft = new SwerveModule(DriveConstants.kFrontLeftDriveMotorPort,
       DriveConstants.kFrontLeftTurningMotorPort, DriveConstants.kFrontLeftDriveEncoderReversed,
-      DriveConstants.kFrontLeftTurningEncoderReversed);
+      DriveConstants.kFrontLeftTurningEncoderReversed, DriveConstants.kFrontLeftturningEncoder);
 
   private final SwerveModule m_rearLeft = new SwerveModule(DriveConstants.kRearLeftDriveMotorPort,
       DriveConstants.kRearLeftTurningMotorPort, DriveConstants.kRearLeftDriveEncoderReversed,
-      DriveConstants.kRearLeftTurningEncoderReversed);
+      DriveConstants.kRearLeftTurningEncoderReversed, DriveConstants.kRearLeftturningEncoder);
 
   private final SwerveModule m_frontRight = new SwerveModule(DriveConstants.kFrontRightDriveMotorPort,
       DriveConstants.kFrontRightTurningMotorPort, DriveConstants.kFrontRightDriveEncoderReversed,
-      DriveConstants.kFrontRightTurningEncoderReversed);
+      DriveConstants.kFrontRightTurningEncoderReversed, DriveConstants.kFrontRightturningEncoder);
 
   private final SwerveModule m_rearRight = new SwerveModule(DriveConstants.kRearRightDriveMotorPort,
       DriveConstants.kRearRightTurningMotorPort, DriveConstants.kRearRightDriveEncoderReversed,
-      DriveConstants.kRearRightTurningEncoderReversed);
+      DriveConstants.kRearRightTurningEncoderReversed, DriveConstants.kRearRightturningEncoder);
 
   // The gyro sensor
   private final AHRS m_gyro = new AHRS();
