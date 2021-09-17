@@ -63,7 +63,8 @@ public class SwerveModule {
   }
 
   private double getTurningMotorEncoder() {
-    return Units.degreesToRadians(m_turningEncoder.getPosition()) * (m_turningEncoderReversed ? -1: 1) / ModuleConstants.kTurningGearRatio;
+    return Units.degreesToRadians(m_turningEncoder.getPosition()) * (m_turningEncoderReversed ? -1 : 1)
+        / ModuleConstants.kTurningGearRatio;
   }
 
   /**
