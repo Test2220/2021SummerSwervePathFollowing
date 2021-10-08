@@ -21,12 +21,12 @@ import edu.wpi.first.wpilibj.util.Units;
  */
 public final class Constants {
   public static final class DriveConstants {
-    public static final int kFrontLeftDriveMotorPort = 0;
+    public static final int kFrontLeftDriveMotorPort = 9;
     public static final int kRearLeftDriveMotorPort = 2;
     public static final int kFrontRightDriveMotorPort = 4;
     public static final int kRearRightDriveMotorPort = 6;
 
-    public static final int kFrontLeftTurningMotorPort = 1;
+    public static final int kFrontLeftTurningMotorPort = 0;
     public static final int kRearLeftTurningMotorPort = 3;
     public static final int kFrontRightTurningMotorPort = 5;
     public static final int kRearRightTurningMotorPort = 7;
@@ -41,7 +41,7 @@ public final class Constants {
     public static final boolean kFrontRightDriveEncoderReversed = false;
     public static final boolean kRearRightDriveEncoderReversed = true;
 
-    public static final int kFrontLeftturningEncoder = 0;
+    public static final int kFrontLeftturningEncoder = 10;
     public static final int kRearLeftturningEncoder = 1;
     public static final int kFrontRightturningEncoder = 2;
     public static final int kRearRightturningEncoder = 3;
