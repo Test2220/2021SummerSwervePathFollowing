@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.."
+		},
+		{
+			"path": "../../../../../../2021SummerSwerveDrive"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.server.launchMode": "Standard"
+	}
+}
